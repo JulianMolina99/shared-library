@@ -13,8 +13,6 @@ jobs:
       npm run build
     displayName: 'npm build'
 
-- job: 'Test'
-  steps: 
   - script: |
         npm test
     displayName: 'unit test'
