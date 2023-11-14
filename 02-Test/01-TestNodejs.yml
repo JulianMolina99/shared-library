@@ -1,6 +1,6 @@
 jobs: 
 - job: 'Test'
   steps: 
-    script: |
+  - script: |
         npm test
     displayName: 'unit test'
