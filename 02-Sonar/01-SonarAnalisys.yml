@@ -10,7 +10,7 @@ jobs:
         cliProjectKey: 'nodejs'
         cliProjectName: 'nodejs'
         cliAdditionalArgs: >
-        sonar.sources=src
+          sonar.sources=src
 
   - task: SonarQubeAnalyze@4
     displayName: 'Run SonarQube analysis'
