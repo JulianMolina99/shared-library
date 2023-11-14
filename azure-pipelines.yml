@@ -5,6 +5,10 @@ stages:
   jobs: 
   - template: '01-Build/01-BuildApp.yml'
 
+- stage: 'Test'
+  displayName: 'Test'
+  jobs: 
+  - template: '02-Test/01-TestNodejs.yml'
 
 - stage: 'Analisys'
   displayName: 'Analisys with sonar'
