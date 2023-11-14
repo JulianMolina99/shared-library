@@ -2,9 +2,6 @@ jobs:
 - job: 'Test'
   steps: 
   
-  - download: current
-    artifact: MyApp
-
   - script: |
         npm test
     displayName: 'unit test'
