@@ -1,0 +1,6 @@
+jobs: 
+- job: 'Test'
+  steps: 
+    script: |
+        npm test
+    displayName: 'unit test'
