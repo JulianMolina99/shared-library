@@ -1,7 +1,7 @@
 jobs:
 
 - job: 'BuildNodeJS'
-  displayName: 'Build Job M'
+  displayName: 'Build'
   steps:
   # - task: NodeTool@1
   #   inputs:
