@@ -15,14 +15,11 @@ jobs:
 
   - script: |
       npm run build
-      echo $(Build.ArtifactStagingDirectory)
-      echo $(System.DefaultWorkingDirectory)
-      echo $(Build.SourcesDirectory)
     displayName: 'npm build'
 
   - task: CopyFiles@2
     inputs:
-      contents: '*'
+      contents: '$(System.DefaultWorkingDirectory)'
       targetFolder: $(Build.ArtifactStagingDirectory)
 
   - task: PublishBuildArtifacts@1
