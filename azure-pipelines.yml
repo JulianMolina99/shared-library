@@ -4,14 +4,10 @@ stages:
   displayName: 'Build app node js'
   jobs: 
   - template: '01-Build/01-BuildApp.yml'
-  - publish: $(Build.ArtifactStagingDirectory)
-    artifact: MyApp
 
 - stage: 'Test'
   displayName: 'Test'
   jobs: 
-  - download: current
-    artifact: MyApp
   - template: '02-Test/01-TestNodejs.yml'
 
 # - stage: 'Analisys'
