@@ -16,3 +16,6 @@ jobs:
   - script: |
       npm run build
     displayName: 'npm build'
+
+  - publish: $(Build.ArtifactStagingDirectory)
+    artifact: MyApp
