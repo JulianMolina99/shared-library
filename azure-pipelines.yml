@@ -1,0 +1,6 @@
+stages:
+
+- stage: 'build'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '01-Build/01-BuildApp.yml'
