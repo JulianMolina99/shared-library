@@ -4,13 +4,6 @@ stages:
   displayName: 'Build app node js'
   jobs: 
   - template: '01-Build/01-BuildApp.yml'
+  - template: '02-Test/01-TestNodejs.yml'
+  - template: '03-Sonar/01-SonarAnalisys.yml'
 
-# - stage: 'Test'
-#   displayName: 'Test'
-#   jobs: 
-#   - template: '02-Test/01-TestNodejs.yml'
-
-# - stage: 'Analisys'
-#   displayName: 'Analisys with sonar'
-#   jobs: 
-#   - template: '03-Sonar/01-SonarAnalisys.yml'
