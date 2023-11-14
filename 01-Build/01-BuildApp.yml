@@ -13,6 +13,7 @@ jobs:
     displayName: 'npm build'
 
 - job: 'Test'
+  dependsOn: 'BuildNodeJS'
   displayName: 'Test app'
   steps: 
   - script: |
@@ -20,6 +21,7 @@ jobs:
     displayName: 'unit test'
 
 - job: 'Analisys'
+  dependsOn: 'Test'
   displayName: 'Analisys with sonar'
   steps: 
   - task: SonarQubePrepare@4
