@@ -9,4 +9,4 @@ stages:
 - stage: 'Analisys'
   displayName: 'Analisys with sonar'
   jobs: 
-  - template: '01-Sonar/01-SonarAnalisys.yml'
+  - template: '02-Sonar/01-SonarAnalisys.yml'
