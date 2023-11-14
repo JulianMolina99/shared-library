@@ -18,8 +18,12 @@ jobs:
       echo $(Build.ArtifactStagingDirectory)
     displayName: 'npm build'
 
+  - task: CopyFiles@2
+    inputs:
+      contents: '*'
+      targetFolder: $(Build.ArtifactStagingDirectory)
+
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'MyApp'
-      publishLocation: 'Container'
+      pathToPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: Myapp
