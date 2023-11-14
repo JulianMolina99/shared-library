@@ -3,11 +3,6 @@ jobs:
 - job: 'BuildNodeJS'
   displayName: 'Build'
   steps:
-  # - task: NodeTool@1
-  #   inputs:
-  #     version: '16.x'
-  #   displayName: 'Install Node.js'
-
   - script: |
       npm install
       npm install --save-dev jest
@@ -17,11 +12,16 @@ jobs:
       npm run build
     displayName: 'npm build'
 
+- job: 'Test'
+  displayName: 'Test app'
+  steps: 
   - script: |
         npm test
     displayName: 'unit test'
 
-
+- job: 'Analisys'
+  displayName: 'Analisys with sonar'
+  steps: 
   - task: SonarQubePrepare@4
     inputs:
         SonarQube: 'mySonarqube'
