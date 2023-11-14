@@ -3,6 +3,7 @@ jobs:
 - job: 'BuildNodeJS'
   displayName: 'Build'
   steps:
+
   - script: |
       npm install
       npm install --save-dev jest
@@ -13,17 +14,12 @@ jobs:
     displayName: 'npm build'
 
 - job: 'Test'
-  dependsOn: 'BuildNodeJS'
-  displayName: 'Test app'
   steps: 
   - script: |
         npm test
     displayName: 'unit test'
 
-- job: 'Analisys'
-  dependsOn: 'Test'
-  displayName: 'Analisys with sonar'
-  steps: 
+
   - task: SonarQubePrepare@4
     inputs:
         SonarQube: 'mySonarqube'
