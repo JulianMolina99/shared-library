@@ -15,7 +15,11 @@ jobs:
 
   - script: |
       npm run build
+      echo $(Build.ArtifactStagingDirectory)
     displayName: 'npm build'
 
-  - publish: $(Build.ArtifactStagingDirectory)
-    artifact: MyApp
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'MyApp'
+      publishLocation: 'Container'
