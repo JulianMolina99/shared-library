@@ -3,10 +3,10 @@ jobs:
 - job: 'BuildNodeJS'
   displayName: 'Build Job M'
   steps:
-  - task: NodeTool@1
-    inputs:
-      version: '16.x'
-    displayName: 'Install Node.js'
+  # - task: NodeTool@1
+  #   inputs:
+  #     version: '16.x'
+  #   displayName: 'Install Node.js'
 
   - script: |
       npm install
