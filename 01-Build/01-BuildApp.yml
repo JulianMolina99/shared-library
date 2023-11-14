@@ -17,6 +17,6 @@ jobs:
       npm run build
     displayName: 'npm build'
 
-    - script: |
+  - script: |
         npm test
     displayName: 'unit test'
