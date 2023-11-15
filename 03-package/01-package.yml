@@ -1,0 +1,9 @@
+jobs:
+- job: 'package'
+  displayName: 'package app'
+  steps: 
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: '$(Build.SourcesDirectory)/dist/*'
+      artifact: 'nodejsapp'
+      publishLocation: 'pipeline'
