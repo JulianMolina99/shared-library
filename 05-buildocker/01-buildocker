@@ -1,0 +1,6 @@
+jobs: 
+- job: 'build_dockerimage'
+  displayName: 'build docker image'
+  steps:
+  - script: |
+        docker build -t nodejs .
