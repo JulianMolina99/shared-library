@@ -6,7 +6,7 @@ stages:
   - template: '01-build/01-build.yml'
 
 - stage: 'test'
-  displayName: 'Build app node js'
+  displayName: 'test app'
   jobs: 
   - template: '02-test/01-test.yml'
 
