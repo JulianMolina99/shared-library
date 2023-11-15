@@ -26,11 +26,11 @@ stages:
   jobs: 
   - template: '05-buildocker/01-buildocker.yml'
 
-- stage: 'deploy'
-  displayName: 'deploy app nodejs'
-  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
-  jobs: 
-  - template: '06-deploy/01-deploy.yml'
+# - stage: 'deploy'
+#   displayName: 'deploy app nodejs'
+#   condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+#   jobs: 
+#   - template: '06-deploy/01-deploy.yml'
 
 # - stage: 'upload_dockerhub'
 #   displayName: 'Build app node js'
