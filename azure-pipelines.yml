@@ -10,10 +10,10 @@ stages:
   jobs: 
   - template: '02-test/01-test.yml'
 
-# - stage: 'package'
-#   displayName: 'Build app node js'
-#   jobs: 
-#   - template: '03-package/01-package.yml'
+- stage: 'package'
+  displayName: 'package artifact'
+  jobs: 
+  - template: '03-package/01-package.yml'
 
 # - stage: 'scan-sonarqube'
 #   displayName: 'Build app node js'
