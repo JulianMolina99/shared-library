@@ -3,4 +3,29 @@ stages:
 - stage: 'build'
   displayName: 'Build app node js'
   jobs: 
-  - template: '01-Build/01-BuildApp.yml'
+  - template: '01-build/01-BuildApp.yml'
+
+- stage: 'test'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '02-test/01-test.yml'
+
+- stage: 'package'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '03-package/01-package.yml'
+
+- stage: 'scan-sonarqube'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '04-sonarqube/01-sonarqube.yml'
+
+- stage: 'deploy'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '05-deploy/01-deploy.yml'
+
+- stage: 'upload_dockerhub'
+  displayName: 'Build app node js'
+  jobs: 
+  - template: '06-Build/01-BuildApp.yml'
