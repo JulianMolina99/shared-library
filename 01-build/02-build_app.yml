@@ -11,6 +11,6 @@ steps:
   - task: PublishPipelineArtifact@1
     inputs:
         artifactName: nodejsapp
-        targetPath: '$(Pipeline.Workspace)'
+        targetPath: '$(Build.SourcesDirectory)'
         publishLocation: 'pipeline'
     displayName: 'Publish npm artifact'
