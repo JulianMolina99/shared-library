@@ -3,4 +3,4 @@ jobs:
   displayName: 'build docker image'
   steps:
   - script: |
-        docker build -t nodejs .
+        docker build -t julianmol007/nodejsapp:$(Build.BuildId) .
