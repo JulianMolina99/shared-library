@@ -1,7 +1,6 @@
 jobs:
 - job: 'deploy'
   displayName: 'deploy app'
-  steps: 
   steps:
   - powershell: |
       $env:BUILD_ID = "$(Build.BuildId)"
