@@ -1,0 +1,27 @@
+jobs:
+- job: 'analysis'
+  displayName: 'analysis with sonar'
+  steps: 
+  
+  - checkout: none
+
+  - task: SonarQubePrepare@4
+    inputs:
+        SonarQube: 'mySonarqube'
+        scannerMode: 'CLI'
+        configMode: 'manual'
+        cliProjectKey: 'nodejs'
+        cliProjectName: 'nodejs'
+        cliAdditionalArgs: >
+          sonar.sources=src
+          sonar.tests=src/__test__ 
+          sonar.exclusions=src/__test__/**
+          sonar.testExecutionReportPaths=./test-report.xml 
+          sonar.cs.opencover.reportsPaths=coverage/lcov.info"
+
+  - task: SonarQubeAnalyze@4
+    displayName: 'Run SonarQube analysis'
+
+  - task: SonarQubePublish@4
+    inputs:
+      pollingTimeoutSec: '300'
