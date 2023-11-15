@@ -2,7 +2,9 @@ jobs:
 - job: 'package'
   displayName: 'package app'
   steps: 
+
   - checkout: none
+  
   - task: PublishPipelineArtifact@1
     inputs:
       targetPath: '$(Build.SourcesDirectory)/dist/*'
