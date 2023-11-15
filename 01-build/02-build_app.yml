@@ -8,10 +8,11 @@ steps:
       npm run build
     displayName: 'npm build'
 
-# En este caso como se esta ejecutando en un mismo agente se puede omitir la tarea de publicar el artefacto, 
-# sin embargo, si se utilizan agentes de azure es necesario publicar el artefacto de compilacion para usarlo en 
-# etapas posteriores, cada etapa utiliza por defecto agentes distintos para realizar los trabajos entonces en ese caso
-# habria que publicar el artefacto y descargarlo 
+  # En este caso como se esta ejecutando en un mismo agente se puede omitir la tarea de publicar el artefacto, 
+  # sin embargo, si se utilizan agentes de azure es necesario publicar el artefacto de compilacion para usarlo en 
+  # etapas posteriores, cada etapa utiliza por defecto agentes distintos para realizar los trabajos entonces en ese caso
+  # habria que publicar el artefacto y descargarlo. En un agente autohospedado basta con ejecutar el comando checkout none
+  # para indicarle a azure que no vuelva a descargar el codigo entre las etapas sino que utilice en el que se esta trabajando. 
 
 
   # - task: PublishPipelineArtifact@1
