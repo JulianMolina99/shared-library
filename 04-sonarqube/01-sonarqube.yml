@@ -2,9 +2,6 @@ jobs:
 - job: 'analysis'
   displayName: 'analysis with sonar'
   steps: 
-  
-  - checkout: none
-
   - task: SonarQubePrepare@4
     inputs:
         SonarQube: 'mySonarqube'
@@ -17,7 +14,7 @@ jobs:
           sonar.tests=src/__test__ 
           sonar.exclusions=src/__test__/**
           sonar.testExecutionReportPaths=./test-report.xml 
-          sonar.cs.opencover.reportsPaths=coverage/lcov.info"
+          sonar.javascript.lcov.reportPaths=$(Build.SourcesDirectory)/coverage/lcov.info"
 
   - task: SonarQubeAnalyze@4
     displayName: 'Run SonarQube analysis'
