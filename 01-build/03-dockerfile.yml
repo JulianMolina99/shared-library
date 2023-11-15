@@ -1,0 +1,21 @@
+steps:
+
+  - bash: |
+      function docker_file_exists {
+        dockerfile_exist="False"
+
+        file_exists=$(find $SYSTEM_DEFAULTWORKINGDIRECTORY -type f \( -iname "Dockerfile" -o -iname "dockerfile" \) | head -n 1)
+        if [[ $file_exists ]]; then
+            dockerfile_exist="True"
+            echo "Dockerfile found."
+        else
+            echo "Error: Dockerfile not found."
+            exit 1
+        fi
+        echo "##vso[task.setvariable variable=dockerfile_exist;isoutput=true]$dockerfile_exist"
+      }
+
+      docker_file_exists
+      
+    name: dockerfile
+    displayName: 'Validate dockerfile exist'
