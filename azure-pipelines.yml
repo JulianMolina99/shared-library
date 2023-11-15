@@ -15,7 +15,7 @@ stages:
   jobs: 
   - template: '03-package/01-package.yml'
 
-- stage: 'scan-sonarqube'
+- stage: 'scan_sonarqube'
   displayName: 'Build app node js'
   jobs: 
   - template: '04-sonarqube/01-sonarqube.yml'
