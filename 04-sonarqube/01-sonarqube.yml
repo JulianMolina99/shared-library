@@ -1,6 +1,8 @@
 jobs:
 - job: 'analysis'
   displayName: 'analysis with sonar'
+  pool:
+    vmImage: 'ubuntu-latest'
   steps: 
   
   - checkout: none
