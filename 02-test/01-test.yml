@@ -1,0 +1,16 @@
+jobs:
+  - job: 'test'
+    displayName: 'test app'
+    steps:
+
+    - checkout: none
+    
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        buildType: 'current'
+        artifactName: 'nodejsapp'
+        targetPath: '$(Build.SourcesDirectory)'
+
+    - script: |
+         npm run build
+      displayName: 'npm build'
