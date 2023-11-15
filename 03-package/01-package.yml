@@ -4,9 +4,9 @@ jobs:
   steps: 
 
   - checkout: none
-  
+
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: '$(Build.SourcesDirectory)/dist/*'
+      targetPath: '$(Build.SourcesDirectory)/dist/'
       artifact: 'nodejsapp'
       publishLocation: 'pipeline'
