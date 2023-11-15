@@ -5,11 +5,11 @@ jobs:
 
     - checkout: none
 
-    - task: DownloadPipelineArtifact@2
-      inputs:
-        buildType: 'current'
-        artifactName: 'nodejsapp'
-        targetPath: '$(Build.SourcesDirectory)'
+    # - task: DownloadPipelineArtifact@2
+    #   inputs:
+    #     buildType: 'current'
+    #     artifactName: 'nodejsapp'
+    #     targetPath: '$(Build.SourcesDirectory)'
 
     - script: |
          npm test
