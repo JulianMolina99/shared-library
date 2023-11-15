@@ -37,7 +37,7 @@ stages:
 #   jobs: 
 #   - template: '07-upload/01-upload.yml'
 
-- stage: 'deploy'
+- stage: 'owasp'
   displayName: 'deploy app nodejs'
   condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs: 
