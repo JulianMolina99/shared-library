@@ -4,7 +4,7 @@ jobs:
     steps:
 
     - checkout: none
-    
+
     - task: DownloadPipelineArtifact@2
       inputs:
         buildType: 'current'
@@ -12,5 +12,5 @@ jobs:
         targetPath: '$(Build.SourcesDirectory)'
 
     - script: |
-         npm run build
-      displayName: 'npm build'
+         npm test
+      displayName: 'npm test'
