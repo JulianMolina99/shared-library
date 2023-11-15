@@ -7,10 +7,3 @@ steps:
   - script: |
       npm run build
     displayName: 'npm build'
-
-  - task: PublishPipelineArtifact@1
-    inputs:
-        artifactName: nodejsapp
-        targetPath: '$(Build.SourcesDirectory)'
-        publishLocation: 'pipeline'
-    displayName: 'Publish npm artifact'
