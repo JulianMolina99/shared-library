@@ -1,0 +1,18 @@
+jobs: 
+- job: 'upload_image'
+  displayName: 'upload image dockerhub'
+  steps:
+
+  - task: Docker@2
+    displayName: Login to Docker Hub
+    inputs:
+        command: login
+        containerRegistry: dockerHubServiceConnection
+
+  - task: Docker@2
+    displayName: Build and push image
+    inputs:
+        command: push
+        repository: $(myuser)/$(myrepo)
+        tags: $(Build.BuildId)
+        containerRegistry: dockerHubServiceConnection
