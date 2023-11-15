@@ -4,8 +4,6 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps: 
-  
-  - checkout: none
 
   - task: SonarQubePrepare@4
     inputs:
@@ -16,10 +14,10 @@ jobs:
         cliProjectName: 'nodejs'
         cliAdditionalArgs: >
           sonar.sources=$(Build.SourcesDirectory)/src
-          sonar.tests=$(Build.SourcesDirectory)/src/__test__ 
-          sonar.exclusions=$(Build.SourcesDirectory)/src/__test__/**
-          sonar.testExecutionReportPaths=$(Build.SourcesDirectory)/test-report.xml 
-          sonar.javascript.lcov.reportPaths=$(Build.SourcesDirectory)/coverage/lcov.info"
+          # sonar.tests=$(Build.SourcesDirectory)/src/__test__ 
+          # sonar.exclusions=$(Build.SourcesDirectory)/src/__test__/**
+          # sonar.testExecutionReportPaths=$(Build.SourcesDirectory)/test-report.xml 
+          # sonar.javascript.lcov.reportPaths=$(Build.SourcesDirectory)/coverage/lcov.info"
 
   - task: SonarQubeAnalyze@4
     displayName: 'Run SonarQube analysis'
