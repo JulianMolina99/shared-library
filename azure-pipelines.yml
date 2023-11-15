@@ -33,7 +33,7 @@ stages:
   - template: '06-deploy/01-deploy.yml'
 
 - stage: 'upload_dockerhub'
-  displayName: 'Build app node js'
+  displayName: 'upload image dockerhub'
   jobs: 
   - template: '07-upload/01-upload.yml'
 
