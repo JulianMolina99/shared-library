@@ -16,14 +16,21 @@ stages:
   - template: '03-package/01-package.yml'
 
 - stage: 'scan_sonarqube'
-  displayName: 'Build app node js'
+  displayName: 'scan sonarqube'
   jobs: 
   - template: '04-sonarqube/01-sonarqube.yml'
 
-# - stage: 'deploy'
-#   displayName: 'Build app node js'
-#   jobs: 
-#   - template: '05-deploy/01-deploy.yml'
+- stage: 'docker_image'
+  displayName: 'Build image docker'
+  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  jobs: 
+  - template: '05-buildocker/01-buildocker.yml'
+
+- stage: 'deploy'
+  displayName: 'deploy app nodejs'
+  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  jobs: 
+  - template: '06-deploy/01-deploy.yml'
 
 # - stage: 'upload_dockerhub'
 #   displayName: 'Build app node js'
