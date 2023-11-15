@@ -1,0 +1,10 @@
+jobs:
+- job: 'deploy'
+  displayName: 'deploy app'
+  steps: 
+  steps:
+  - powershell: |
+      $env:BUILD_ID = "$(Build.BuildId)"
+      docker-compose up -d
+    displayName: 'Deploy with Docker Compose'
+
