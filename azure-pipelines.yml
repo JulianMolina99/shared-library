@@ -1,3 +1,11 @@
+parameters:
+  - name: library
+    type: string
+
+variables:
+  - name: library
+    value: ${{parameters.library}}
+
 stages:
 
 - stage: 'build'
