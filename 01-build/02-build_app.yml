@@ -7,3 +7,16 @@ steps:
   - script: |
       npm run build
     displayName: 'npm build'
+
+# En este caso como se esta ejecutando en un mismo agente se puede omitir la tarea de publicar el artefacto, 
+# sin embargo, si se utilizan agentes de azure es necesario publicar el artefacto de compilacion para usarlo en 
+# etapas posteriores, cada etapa utiliza por defecto agentes distintos para realizar los trabajos entonces en ese caso
+# habria que publicar el artefacto y descargarlo 
+
+
+  # - task: PublishPipelineArtifact@1
+  #   inputs:
+  #       artifactName: nodejsapp
+  #       targetPath: '$(Build.SourcesDirectory)'
+  #       publishLocation: 'pipeline'
+  #   displayName: 'Publish npm artifact'
