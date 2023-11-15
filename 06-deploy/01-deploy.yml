@@ -3,6 +3,8 @@ jobs:
   displayName: 'deploy app'
   steps:
   - powershell: |
+      $env:USER = "$(myuser)"
+      $env:REPO = "$(myrepo)"
       $env:BUILD_ID = "$(Build.BuildId)"
       docker-compose up -d
     displayName: 'Deploy with Docker Compose'
