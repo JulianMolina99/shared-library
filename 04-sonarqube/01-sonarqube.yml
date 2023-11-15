@@ -2,6 +2,9 @@ jobs:
 - job: 'analysis'
   displayName: 'analysis with sonar'
   steps: 
+  
+  - checkout: none
+
   - task: SonarQubePrepare@4
     inputs:
         SonarQube: 'mySonarqube'
@@ -10,10 +13,10 @@ jobs:
         cliProjectKey: 'nodejs'
         cliProjectName: 'nodejs'
         cliAdditionalArgs: >
-          sonar.sources=src
-          sonar.tests=src/__test__ 
-          sonar.exclusions=src/__test__/**
-          sonar.testExecutionReportPaths=./test-report.xml 
+          sonar.sources=$(Build.SourcesDirectory)/src
+          sonar.tests=$(Build.SourcesDirectory)/src/__test__ 
+          sonar.exclusions=$(Build.SourcesDirectory)/src/__test__/**
+          sonar.testExecutionReportPaths=$(Build.SourcesDirectory)/test-report.xml 
           sonar.javascript.lcov.reportPaths=$(Build.SourcesDirectory)/coverage/lcov.info"
 
   - task: SonarQubeAnalyze@4
