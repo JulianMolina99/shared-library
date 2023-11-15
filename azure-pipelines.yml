@@ -35,4 +35,10 @@ stages:
 # - stage: 'upload_dockerhub'
 #   displayName: 'Build app node js'
 #   jobs: 
-#   - template: '06-Build/01-BuildApp.yml'
+#   - template: '07-upload/01-upload.yml'
+
+- stage: 'deploy'
+  displayName: 'deploy app nodejs'
+  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+  jobs: 
+  - template: '08-owasp/01-owasp.yml'
