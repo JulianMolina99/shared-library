@@ -1,4 +1,5 @@
 steps:
+  - checkout: none
 
   - bash: |
       function docker_file_exists {
