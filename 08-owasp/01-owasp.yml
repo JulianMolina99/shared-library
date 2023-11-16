@@ -3,5 +3,5 @@ jobs:
   displayName: 'scan with owasp'
   steps:
   - script:
-      docker run --rm --network=nodejs_app -v owasp_data:/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t http://nodejs_app:3001 -r testreport.html -I
+      docker run -u root --network=nodejs_app -v owasp_data:/zap/wrk/:rw -t ghcr.io/zaproxy/zaproxy:stable zap-full-scan.py -t http://nodejs_app:3001 -r testreport.html -I
     displayName: 'analysis with owasp'
