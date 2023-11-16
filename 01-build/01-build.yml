@@ -7,5 +7,6 @@ jobs:
 
 - job: 'verify_docker'
   displayName: 'verify dockerfile exist'
+  dependsOn: 'Build'
   steps:
   - template: 03-dockerfile.yml
