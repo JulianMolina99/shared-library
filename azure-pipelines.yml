@@ -1,10 +1,5 @@
-parameters:
-  - name: variablesGroup
-    type: string
-
 variables:
-  - name: variablesGroup
-    value: ${{parameters.variablesGroup}}
+  - group: dockerepo
 
 stages:
 
