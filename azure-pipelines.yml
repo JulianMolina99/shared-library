@@ -1,10 +1,10 @@
 parameters:
-  - name: library
+  - name: variablesGroup
     type: string
 
 variables:
-  - name: library
-    value: ${{parameters.library}}
+  - name: variablesGroup
+    value: ${{parameters.variablesGroup}}
 
 stages:
 
