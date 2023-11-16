@@ -37,6 +37,7 @@ stages:
 
 - stage: 'upload_dockerhub'
   displayName: 'upload image dockerhub'
+  condition: or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
   jobs: 
   - template: '07-upload/01-upload.yml'
 
